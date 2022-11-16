@@ -1,59 +1,73 @@
-#include <iostream>
+ï»¿#include <iostream>
+#include <math.h>
 using namespace std;
-int a, b, c, d;
-class Drobi 
+class Drobi
 {
-public:
-	int chisl_1;
-	int chisl_2;
-	int znamen_1;
-	int znamen_2;
-	int otvet;
-	int znamen;
-	int chisl;
-	void input(int a,int b,int c,int d)
+	int chisl_a;
+	int chisl_b;
+	int znamen_c;
+	int znamen_d;
+	int otvet_1;
+	int otvet_2;
+	int otvet_3;
+	char operation;
+public: 
+	static int drobiCount;
+	int operations()
 	{
-		chisl_1 = a;
-		chisl_2 = b;
-		znamen_1 = c;
-		znamen_2 = d;
-		znamen;
-		chisl;
-		}
-	int Operation(int chisl_1,int chisl_2,int znamen_1,int znamen_2,int otvet,int znamen,int chisl)
-	{
-		//a/d - c/b = (a*d-c*b)/(b*d)
-		(chisl_1 * znamen_2 - znamen_1 * chisl_2) / (chisl_2 * znamen_2);
-		chisl = (chisl_1 * chisl_2) - (znamen_1 * znamen_2);
-		znamen = chisl_2 * znamen_2;
-		cout << "Îòíÿòàÿ Äðîáü:  " << chisl << '/' << znamen << endl;
-		//a/d * c/b = (a*d-c*b)/(b*d)
-		(chisl_1 * znamen_2 * znamen_1 * chisl_2) / (chisl_2 * znamen_2);
-		chisl = (chisl_1 * chisl_2) - (znamen_1 * znamen_2);
-		znamen = chisl_2 * znamen_2;
-		cout << "Óìíîæåííàÿ Äðîáü:  " << chisl << '/' << znamen << endl;
-		//a/d / c/b = (a*d-c*b)/(b*d)
-		(chisl_1 * znamen_2 / znamen_1 * chisl_2) / (chisl_2 * znamen_2);
-		chisl = (chisl_1 * chisl_2) - (znamen_1 * znamen_2);
-		znamen = chisl_2 * znamen_2;
-		cout << "Ðàçäåëåííàÿ Äðîáü:  " << chisl << '/' << znamen << endl;
-		//a/b + c/d = (a*b+c*d)/(b*d)
-		(chisl_1 + chisl_2 + znamen_1 + znamen_2) / (chisl_2 * znamen_2);
-		chisl = (chisl_1 * chisl_2) - (znamen_1 * znamen_2);
-		znamen = chisl_2 * znamen_2;
-		cout << "Ïðèáàâëåííàÿ Äðîáü:  " << chisl << '/' << znamen << endl;
+		cout << endl;
+		otvet_1 = chisl_a * znamen_d + znamen_c * chisl_b;
+		otvet_2 = chisl_b * znamen_d;
+		otvet_3 = otvet_1 / otvet_2;
+		cout << "â–¼Ð¡ÑƒÐ¼Ð¼Ð°â–¼" << endl;
+		cout << otvet_1 << "/" << otvet_2 << endl;
+		cout << otvet_3 << endl;
+		cout << endl;
+		otvet_1 = chisl_a * znamen_d - znamen_c * chisl_b;
+		otvet_2 = chisl_b * znamen_d;
+		otvet_3 = otvet_1 / otvet_2;
+		cout << "â–¼Ð Ð°Ð·Ð½Ð¾ÑÑ‚ÑŒâ–¼" << endl;
+		cout << otvet_1 << "/" << otvet_2 << endl;
+		cout << otvet_3 << endl;
+		cout << endl;
+		otvet_1 = chisl_a * znamen_d;
+		otvet_2 = chisl_b * znamen_c;
+		otvet_3 = otvet_1 / otvet_2;
+		cout << "â–¼Ð”ÐµÐ»ÐµÐ½Ð¸Ðµâ–¼" << endl;
+		cout << otvet_1 << "/" << otvet_2 << endl;
+		cout << otvet_3 << endl;
+		cout << endl;
+		otvet_1 = chisl_a * znamen_c;
+		otvet_2 = chisl_b * znamen_d;
+		otvet_3 = otvet_1 / otvet_2;
+		cout << "â–¼ÐŸÑ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµâ–¼" << endl;
+		cout << otvet_1 << "/" << otvet_2 << endl;
+		cout << otvet_3 << endl;
+		
+		return 0;
 	}
 
-
+	void Vopros()
+	{
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð´Ñ€Ð¾Ð±ÑŒ: "; cin >> chisl_a;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‚Ð¾Ñ€ÑƒÑŽ Ð´Ñ€Ð¾Ð±ÑŒ: "; cin >> chisl_b;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð´Ñ€Ð¾Ð±ÑŒ: "; cin >> znamen_c;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‚Ð¾Ñ€ÑƒÑŽ Ð´Ñ€Ð¾Ð±ÑŒ: "; cin >> znamen_d;
+	}
+	~Drobi() {
+		drobiCount--;
+		cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹" << endl;
+	}
 };
-
-int main() 
+int Drobi::drobiCount{ 0 };
+int main()
 {
 	setlocale(LC_ALL, "");
-	int a, b, c, d;
-	cout << "Ââåäèòå ïåðâóþ äðîáü:";cin >> a,b;
-	cout << "Ââåäèòå âòîðóþ äðîáü:"; cin >> c,d;
-	Drobi operat;
-	operat.input(int a,int b,int c,int d);
+	// a / b + c / d = (a * d + b * c) / (b * d)
 	
+	Drobi dr;
+	dr.Vopros();
+	dr.operations();
+
+	return 0;
 }
